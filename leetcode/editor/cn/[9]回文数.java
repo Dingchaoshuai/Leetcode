@@ -28,16 +28,31 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+/*class Solution {
+    public boolean isPalindrome(int x) {
+        if(x < 0 || (x % 10 == 0 && x != 0)){
+            return false;
+        }
+        int y = 0;
+        while(x > y){
+            y = y * 10 + x % 10;
+            x /= 10;
+        }
+        return y == x || y / 10 == x;
+    }
+}*/
 class Solution {
     public boolean isPalindrome(int x) {
-        for(int i =0;i<nums.length;i++){
-            for(int j =i+1;j<nums.length;j++){
-                if(nums[i]+nums[j]==target){
-                    return new int[]{i,j};
-                }
-            }
+        if(x < 0 ){
+            return false;
         }
-        throw new IllegalArgumentException("No two sum solution");
+        int rev = 0;
+        int num = x;
+        while(num != 0){
+            rev = rev * 10 + num % 10;
+            num = num / 10;
+        }
+        return rev == x;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
